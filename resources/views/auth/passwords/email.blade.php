@@ -1,4 +1,6 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app') --}}
+@extends('adminlte::passwords.email')
+
 
 @section('content')
 <div class="container">
