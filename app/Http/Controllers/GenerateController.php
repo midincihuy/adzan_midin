@@ -34,8 +34,10 @@ class GenerateController extends Controller
         }
         print_r($data);
         $schedule = Schedule::firstOrNew(
-          ['tanggal' => $data[0]],
-          ['city_id' => $city_id]
+          [
+            'tanggal' => $data[0],
+            'city_id' => $city_id
+          ]
         );
         $schedule->shubuh  = $data[1];
         $schedule->shubuh  = $data[1];
