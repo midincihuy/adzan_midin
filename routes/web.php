@@ -26,7 +26,7 @@ Route::resource('generate', 'GenerateController');
 
 Route::get('/set', function () {
     $res = Telegram::setWebhook([
-        'url' => 'https://salty-escarpment-49242/389617994:AAHSwRDWE5UcQHnpfKHzAe2XVWIhov1FEEw/webhook'
+        'url' => 'https://salty-escarpment-49242.herokuapp.com/389617994:AAHSwRDWE5UcQHnpfKHzAe2XVWIhov1FEEw/webhook'
     ]);
     dd($res);
 
