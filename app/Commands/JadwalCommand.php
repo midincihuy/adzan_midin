@@ -35,7 +35,7 @@ class JadwalCommand extends Command
           ['tanggal' => $date]
         )->first();
         if($schedule){
-          $text .= "$date";
+          $text .= "$schedule->tanggal";
           $text .= "\nShubuh : $schedule->shubuh";
           $text .= "\nDzuhur : $schedule->dzuhur";
           $text .= "\nAshr   : $schedule->ashr";
