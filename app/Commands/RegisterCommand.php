@@ -26,6 +26,7 @@ class RegisterCommand extends Command
     {
         $data = explode(' ', $arguments);
         $city_id = $data[0];
+        $text = "";
         if(!empty($city_id)){
           $chat_id = $this->getTelegram()->getWebhookUpdates()->getMessage()->getChat()->getId();
 
@@ -34,10 +35,11 @@ class RegisterCommand extends Command
           $registration->city_id = $city_id;
           $registration->save();
 
-          $this->replyWithMessage(['text' => 'Hello! Thanks for registering']);
+          $text = 'Hello! Thanks for registering';
         }else{
-          $this->replyWithMessage(['text' => "Please provide the city_id\nExample : /register [city_id]"]);
-
+          $text = "Please provide the city_id\nExample : /register [city_id]";
         }
+        $this->replyWithMessage(['text' => $text]);
+
     }
 }

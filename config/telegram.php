@@ -59,5 +59,6 @@ return [
         Telegram\Bot\Commands\HelpCommand::class,
         App\Commands\JadwalCommand::class,
         App\Commands\RegisterCommand::class,
+        App\Commands\CityCommand::class,
     ],
 ];
