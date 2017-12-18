@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Schedule;
+use App\Registration;
 
 class GenerateController extends Controller
 {
@@ -50,5 +51,60 @@ class GenerateController extends Controller
     }else{
       return "no param";
     }
+  }
+
+  public function show()
+  {
+    $tanggal = date("Y-m-d");
+    $regisration = Registration::all();
+    $text = "";
+    foreach($regisration as $reg){
+      $time = date("H:i", strtotime('+'.$reg->alert.' minutes'));
+      $city_id = $reg->city_id;
+      $data = Schedule::where('city_id', $city_id)
+      ->where('tanggal', $tanggal)
+      ->first();
+
+      switch ($time) {
+        case $data->shubuh:
+            $text .= "waktu fajr : ".$data->shubuh;
+            break;
+        case $data->dzuhur:
+            $text .= "waktu dzuhur : ".$data->dzuhur;
+            break;
+        case $data->ashr:
+            $text .= "waktu ashar : ".$data->ashr;
+            break;
+        case $data->maghrib:
+            $text .= "waktu maghrib : ".$data->maghrib;
+            break;
+        case $data->isya:
+            $text .= "waktu isya : ".$data->isya;
+            break;
+        default:
+            // $text .= "Now : $tanggal . $time";
+            // $text .= "\nChat ID : $reg->chat_id";
+            // $text .= "\nData Schedule :";
+            // $text .= "\nShubuh $data->shubuh";
+            // $text .= "\nDzuhur $data->dzuhur";
+            // $text .= "\nAshr $data->ashr";
+            // $text .= "\nMaghrib $data->maghrib";
+            // $text .= "\nIsya $data->isya";
+            break;
+      }
+      if($text != ""){
+        // Log::info($text);
+        $response = \Telegram::sendMessage([
+                'chat_id' => $reg->chat_id,
+                'text' => $text,
+            ]);
+      }
+      // echo "<pre>";
+      // echo $text;
+
+      $text = "";
+    }
+
+
   }
 }
