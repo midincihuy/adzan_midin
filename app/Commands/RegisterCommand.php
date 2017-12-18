@@ -26,9 +26,14 @@ class RegisterCommand extends Command
     {
         $data = explode(' ', $arguments);
 
-        $chatId = $this->getTelegram()->getWebhookUpdates()->getMessage()->getChat()->getId();
+        $chat_id = $this->getTelegram()->getWebhookUpdates()->getMessage()->getChat()->getId();
+        $city_id = $data[0];
+        $registration = new Registration();
+        $registration->chat_id = $chat_id;
+        $registration->city_id = $city_id;
+        $registration->save();
 
-        $this->replyWithMessage(['text' => 'Hello! chat_id = '.$chatId.' argument[0] => '. $data[0]]);
+        $this->replyWithMessage(['text' => 'Hello! Thanks for registering']);
 
         // This will update the chat status to typing...
         // $this->replyWithChatAction(['action' => Actions::TYPING]);
