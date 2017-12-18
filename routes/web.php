@@ -25,7 +25,7 @@ Route::resource('city', 'CityController');
 Route::resource('generate', 'GenerateController');
 
 Route::get('/set', function () {
-    $res = Telegram::setWebhook([
+    $res = \Telegram::setWebhook([
         'url' => 'https://salty-escarpment-49242.herokuapp.com/389617994:AAHSwRDWE5UcQHnpfKHzAe2XVWIhov1FEEw/webhook'
     ]);
     dd($res);
@@ -35,7 +35,7 @@ Route::get('/set', function () {
 Route::post('/389617994:AAHSwRDWE5UcQHnpfKHzAe2XVWIhov1FEEw/webhook', function () {
 
     /** @var \Telegram\Bot\Objects\Update $update */
-    $update = Telegram::commandsHandler(true);
+    $update = \Telegram::commandsHandler(true);
 
     return 'ok';
 });
