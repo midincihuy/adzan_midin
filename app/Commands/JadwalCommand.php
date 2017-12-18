@@ -30,10 +30,8 @@ class JadwalCommand extends Command
       $registration = Registration::where('chat_id', $chat_id)->first();
       if($registration){
         $city_id = $registration->city_id;
-        $schedule = Schedule::where(
-          ['city_id' => $city_id],
-          ['tanggal' => $date]
-        )->first();
+        $schedule = Schedule::where('city_id',$city_id)->where('tanggal', $date)
+        ->first();
         if($schedule){
           $text .= "$schedule->tanggal";
           $text .= "\nShubuh : $schedule->shubuh";
