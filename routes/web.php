@@ -24,12 +24,18 @@ Route::resource('city', 'CityController');
 
 Route::resource('generate', 'GenerateController');
 
-Route::post('/'.env('TELEGRAM_BOT_TOKEN').'/webhook', function () {
-    $update = Telegram::commandsHandler(true);
+Route::get('/set', function () {
+    $res = Telegram::setWebhook([
+        'url' => 'https://salty-escarpment-49242/<token>/webhook'
+    ]);
+    dd($res);
 
-	// Commands handler method returns an Update object.
-	// So you can further process $update object
-	// to however you want.
+});
+
+Route::post('<token>/webhook', function () {
+
+    /** @var \Telegram\Bot\Objects\Update $update */
+    $update = Telegram::commandsHandler(true);
 
     return 'ok';
 });
