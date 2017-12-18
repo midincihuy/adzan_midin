@@ -26,13 +26,13 @@ Route::resource('generate', 'GenerateController');
 
 Route::get('/set', function () {
     $res = Telegram::setWebhook([
-        'url' => 'https://salty-escarpment-49242/<token>/webhook'
+        'url' => 'https://salty-escarpment-49242/'. env('TELEGRAM_BOT_TOKEN') .'/webhook'
     ]);
     dd($res);
 
 });
 
-Route::post('<token>/webhook', function () {
+Route::post('/'. env('TELEGRAM_BOT_TOKEN') .'/webhook', function () {
 
     /** @var \Telegram\Bot\Objects\Update $update */
     $update = Telegram::commandsHandler(true);
