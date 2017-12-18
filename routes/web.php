@@ -39,3 +39,4 @@ Route::post('/255036040:AAE0dMDd4pzprAxXZQR28OANmbWwMRklbVk/webhook', function (
 
     return 'ok';
 });
+Route::resource('registration', 'RegistrationController');
