@@ -27,7 +27,7 @@ class CityCommand extends Command
     {
       $text = "";
       $data = explode(' ', $arguments);
-      $city_text = $data[0];
+      $city_text = strtoupper($data[0]);
       if(!empty($city_text)){
         $city = City::where('name', 'like','%'.$city_text.'%')->get();
         if(!empty($city)){

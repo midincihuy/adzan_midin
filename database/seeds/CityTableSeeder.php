@@ -26,10 +26,10 @@ class CityTableSeeder extends Seeder
       foreach($list as $x){
         $x = (str_replace('option value="', '', str_replace('" selected>', ',', str_replace('">', ',', str_replace('</option>','',$x)))));
         $data = explode(',', $x);
-        
+
         DB::table('cities')->insert([
           'city_id' => $data[0],
-          'name' => $data[1]
+          'name' => strtoupper($data[1])
         ]);
       }
     }
