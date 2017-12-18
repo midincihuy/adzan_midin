@@ -21,3 +21,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('schedule', 'ScheduleController');
 Route::resource('city', 'CityController');
+
+Route::resource('generate', 'GenerateController');
