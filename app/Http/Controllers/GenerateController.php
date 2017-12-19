@@ -38,8 +38,12 @@ class GenerateController extends Controller
           $baris[0] = $year."-".$month."-".$baris[0];
           $data = array();
 
-          foreach($baris as $x){
-            $data[] = trim(strip_tags($x));
+          foreach($baris as $k => $x){
+            if($k != 0){
+              $data[] = substr(trim(strip_tags($x)),0,5);
+            }else{
+              $data[] = trim(strip_tags($x));
+            }
           }
           print_r($data);
           /*
