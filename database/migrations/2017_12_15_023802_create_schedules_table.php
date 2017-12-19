@@ -17,7 +17,10 @@ class CreateSchedulesTable extends Migration
             $table->increments('id');
             $table->string('city_id');
             $table->string('tanggal');
+            $table->string('imsyak');
             $table->string('shubuh');
+            $table->string('terbit');
+            $table->string('dhuha');
             $table->string('dzuhur');
             $table->string('ashr');
             $table->string('maghrib');

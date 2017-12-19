@@ -15,6 +15,11 @@ class GenerateController extends Controller
     $month = $request->input('month');
     // $city_id = $request->input('city_id');
     $reg = Registration::select('city_id')->orderBy('city_id')->groupBy('city_id')->get();
+    if(count($reg) == 0){
+      $reg[] = (Object) array(
+        'city_id' => '67' // set default value to Depok
+      );
+    }
     foreach($reg as $data){
       $city_id = $data->city_id;
       if(!empty($year) && !empty($month) && !empty($city_id)){
@@ -37,18 +42,31 @@ class GenerateController extends Controller
             $data[] = trim(strip_tags($x));
           }
           print_r($data);
+          /*
+          [0] => 2017-11-01
+          [1] => 03:58 imsyak
+          [2] => 04:08 shubuh
+          [3] => 05:25 terbit
+          [4] => 05:49 duha
+          [5] => 11:38 dzuhur
+          [6] => 14:54 ashr
+          [7] => 17:48 maghrib
+          [8] => 19:00 isya
+          */
           $schedule = Schedule::firstOrNew(
             [
               'tanggal' => $data[0],
               'city_id' => $city_id
             ]
           );
-          $schedule->shubuh  = $data[1];
-          $schedule->shubuh  = $data[1];
-          $schedule->dzuhur  = $data[2];
-          $schedule->ashr    = $data[3];
-          $schedule->maghrib = $data[4];
-          $schedule->isya    = $data[5];
+          $schedule->imsyak  = $data[1];
+          $schedule->shubuh  = $data[2];
+          $schedule->terbit  = $data[3];
+          $schedule->dhuha   = $data[4];
+          $schedule->dzuhur  = $data[5];
+          $schedule->ashr    = $data[6];
+          $schedule->maghrib = $data[7];
+          $schedule->isya    = $data[8];
           $schedule->save();
 
           $date = date("Y-m",strtotime("-3 months"));
