@@ -30,8 +30,9 @@ class RegisterCommand extends Command
         if(!empty($city_id)){
           $chat_id = $this->getTelegram()->getWebhookUpdates()->getMessage()->getChat()->getId();
 
-          $registration = new Registration();
-          $registration->chat_id = $chat_id;
+          $registration = Registration::firstOrNew([
+            'chat_id' => $chat_id
+          ]);
           $registration->city_id = $city_id;
           $registration->save();
 
