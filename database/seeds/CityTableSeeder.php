@@ -29,7 +29,9 @@ class CityTableSeeder extends Seeder
 
         DB::table('cities')->insert([
           'city_id' => $data[0],
-          'name' => strtoupper($data[1])
+          'name' => strtoupper($data[1]),
+          'created_at' => date('Y-m-d H:i:s'),
+          'updated_at' => date('Y-m-d H:i:s')
         ]);
       }
     }

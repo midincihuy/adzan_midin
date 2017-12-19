@@ -119,6 +119,11 @@ return [
             'url'         => 'city',
             'icon'        => 'globe',
         ],
+        [
+            'text'        => 'Registration',
+            'url'         => 'registration',
+            'icon'        => 'file',
+        ],
         // [
         //     'text' => 'Blog',
         //     'url'  => 'admin/blog',

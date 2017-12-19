@@ -4,16 +4,33 @@
   <div class="panel panel-default">
     <div class="panel-heading">{{ $title }}</div>
     <div class="panel-body">
-      {{-- {{ $schedule[0]->city->name }} --}}
-      @foreach ($registration as $key => $value)
-        <article class="">
-          <div class="body">
-            {{ $value->chat_id }} in [{{ $value->city_id }}] {{ $value->city->name }} with : {{ $value->alert }} minutes alert
-
-          </div>
-        </article>
-      @endforeach
-      {{ $registration->links() }}
+      <table id="registration">
+        <thead>
+          <tr>
+            <th>City</th><th>Chat ID</th><th>Alert (minutes)</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <th>City</th><th>Chat ID</th><th>Alert (minutes)</th>
+          </tr>
+        </tfoot>
+      </table>
     </div>
   </div>
 @endsection
+
+@push('js')
+  <script type="text/javascript">
+    $('#registration').DataTable({
+      processing: true,
+      serverSide: true,
+      ajax: '{!! route('ajax_registration') !!}',
+      columns: [
+        { data: 'city.name', name: 'city.name' },
+        { data: 'chat_id', name: 'chat_id' },
+        { data: 'alert', name: 'alert' },
+      ]
+    });
+  </script>
+@endpush

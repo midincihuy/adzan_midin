@@ -40,3 +40,7 @@ Route::post('/255036040:AAE0dMDd4pzprAxXZQR28OANmbWwMRklbVk/webhook', function (
     return 'ok';
 });
 Route::resource('registration', 'RegistrationController');
+
+Route::get('/ajax/schedule', 'AjaxController@schedule')->name('ajax_schedule');
+Route::get('/ajax/city', 'AjaxController@city')->name('ajax_city');
+Route::get('/ajax/registration', 'AjaxController@registration')->name('ajax_registration');
