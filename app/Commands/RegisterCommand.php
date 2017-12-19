@@ -17,7 +17,7 @@ class RegisterCommand extends Command
     /**
      * @var string Command Description
      */
-    protected $description = "Register Command";
+    protected $description = "Register kota untuk mendapat notifikasi waktu solat";
 
     /**
      * @inheritdoc

@@ -17,7 +17,7 @@ class AlertCommand extends Command
     /**
      * @var string Command Description
      */
-    protected $description = "Change alert time";
+    protected $description = "Mengubah lama notifikasi sebelum adzan (menit)";
 
     /**
      * @inheritdoc

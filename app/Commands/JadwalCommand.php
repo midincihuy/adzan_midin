@@ -17,7 +17,7 @@ class JadwalCommand extends Command
     /**
      * @var string Command Description
      */
-    protected $description = "Jadwal Command to get you started";
+    protected $description = "Untuk melihat jadwal solat hari ini";
 
     /**
      * @inheritdoc

@@ -18,7 +18,7 @@ class CityCommand extends Command
     /**
      * @var string Command Description
      */
-    protected $description = "City Command to get you started";
+    protected $description = "Mendapatkan list kode kota";
 
     /**
      * @inheritdoc
