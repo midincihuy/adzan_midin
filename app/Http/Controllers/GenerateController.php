@@ -47,6 +47,9 @@ class GenerateController extends Controller
         $schedule->maghrib = $data[4];
         $schedule->isya    = $data[5];
         $schedule->save();
+
+        $date = date("Y-m",strtotime("-3 months"));
+        $delete = Schedule::where('tangal','like', $date.'%')->delete();
       }
     }else{
       return "no param";
@@ -67,19 +70,19 @@ class GenerateController extends Controller
 
       switch ($time) {
         case $data->shubuh:
-            $text .= "waktu fajr : ".$data->shubuh;
+            $text .= "shubuh : ".$data->shubuh;
             break;
         case $data->dzuhur:
-            $text .= "waktu dzuhur : ".$data->dzuhur;
+            $text .= "dzuhur : ".$data->dzuhur;
             break;
         case $data->ashr:
-            $text .= "waktu ashar : ".$data->ashr;
+            $text .= "ashar : ".$data->ashr;
             break;
         case $data->maghrib:
-            $text .= "waktu maghrib : ".$data->maghrib;
+            $text .= "maghrib : ".$data->maghrib;
             break;
         case $data->isya:
-            $text .= "waktu isya : ".$data->isya;
+            $text .= "isya : ".$data->isya;
             break;
         default:
             // $text .= "Now : $tanggal . $time";
