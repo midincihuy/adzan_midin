@@ -27,7 +27,7 @@ class AlertCommand extends Command
         $data = explode(' ', $arguments);
         $alert = !empty($data[0]) ? $data[0] : 0;
         $text = "";
-        if(!empty($city_id)){
+        if(!empty($alert)){
           $chat_id = $this->getTelegram()->getWebhookUpdates()->getMessage()->getChat()->getId();
 
           $registration = Registration::where('chat_id',$chat_id)->first();
