@@ -7,12 +7,12 @@
       <table id="registration">
         <thead>
           <tr>
-            <th>City</th><th>Chat ID</th><th>Alert (minutes)</th>
+            <th>City</th><th>Type</th><th>Chat Title</th><th>Chat Username</th><th>Alert (minutes)</th>
           </tr>
         </thead>
         <tfoot>
           <tr>
-            <th>City</th><th>Chat ID</th><th>Alert (minutes)</th>
+            <th>City</th><th>Type</th><th>Chat Title</th><th>Chat Username</th><th>Alert (minutes)</th>
           </tr>
         </tfoot>
       </table>
@@ -28,7 +28,9 @@
       ajax: '{!! route('ajax_registration') !!}',
       columns: [
         { data: 'city.name', name: 'city.name' },
-        { data: 'chat_id', name: 'chat_id' },
+        { data: 'chat.type', name: 'chat.type' },
+        { data: 'chat.title', name: 'chat.title' },
+        { data: 'chat.username', name: 'chat.username' },
         { data: 'alert', name: 'alert' },
       ]
     });

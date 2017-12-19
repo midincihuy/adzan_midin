@@ -26,7 +26,7 @@ class AjaxController extends Controller
 
   public function registration()
   {
-    $registration = Registration::with('city')->select('registrations.*');
+    $registration = Registration::with('city')->with('chat')->select('registrations.*');
     return DataTables::of($registration)->make(true);
   }
 }
