@@ -35,6 +35,8 @@ class AlertCommand extends Command
           $registration->save();
 
           $text = "You Change alert to $alert minutes";
+        }else{
+          $text = "Please Provide time ";
         }
         $this->replyWithMessage(['text' => $text]);
 
