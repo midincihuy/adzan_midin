@@ -34,11 +34,14 @@ class JadwalCommand extends Command
         ->first();
         if($schedule){
           $text .= "$schedule->tanggal";
-          $text .= "\nShubuh : $schedule->shubuh";
-          $text .= "\nDzuhur : $schedule->dzuhur";
-          $text .= "\nAshr   : $schedule->ashr";
-          $text .= "\nMaghrib: $schedule->maghrib";
-          $text .= "\nIsya : $schedule->isya";
+          $text .= "\nImsyak\t: $schedule->imsyak";
+          $text .= "\nShubuh\t: $schedule->shubuh";
+          $text .= "\nTerbit\t: $schedule->terbit";
+          $text .= "\nDhuha\t: $schedule->dhuha";
+          $text .= "\nDzuhur\t: $schedule->dzuhur";
+          $text .= "\nAshr\t: $schedule->ashr";
+          $text .= "\nMaghrib\t: $schedule->maghrib";
+          $text .= "\nIsya\t: $schedule->isya";
         }else{
           $text .= "Not available Schedule Yet";
         }
