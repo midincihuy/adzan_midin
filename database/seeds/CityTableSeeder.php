@@ -15,7 +15,7 @@ class CityTableSeeder extends Seeder
       $year = 2017; // dummy
       $city_id = 67; // Depok
       $client = new \GuzzleHttp\Client();
-      $res = $client->request('GET', "http://jadwalsholat.pkpu.or.id/monthly.php?type=2&id=$city_id&m=$month&y=$year");
+      $res = $client->request('GET', env("JADWAL_URL","https://www.jadwalsholat.org/adzan/")."monthly.php?type=2&id=$city_id&m=$month&y=$year");
       $body = $res->getBody();
       $arr = explode('Pilih Kota', trim($body));
       $satu = explode('</select>', $arr[1]);
