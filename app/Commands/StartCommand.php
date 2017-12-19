@@ -46,9 +46,9 @@ class StartCommand extends Command
         // $registration->alert = $alert;
         // $registration->save();
 
-        $text = "Welcome to this ChatID ".json_encode($chat);
+        $text = "Selamat Datang ";
 
         $this->replyWithMessage(['text' => $text]);
-
+        $this->triggerCommand('help');
     }
 }
