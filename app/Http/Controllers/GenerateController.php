@@ -16,7 +16,7 @@ class GenerateController extends Controller
     $city_id = $request->input('city_id');
     if(!empty($year) && !empty($month) && !empty($city_id)){
       $client = new \GuzzleHttp\Client();
-      $res = $client->request('GET', "http://jadwalsholat.pkpu.or.id/monthly.php?type=2&id=$city_id&m=$month&y=$year");
+      $res = $client->request('GET', env("JADWAL_URL","https://www.jadwalsholat.org/adzan/")."monthly.php?type=2&id=$city_id&m=$month&y=$year");
       $body = $res->getBody();
       $arr = explode('<b>Isya</b></td></tr>', trim($body));
       $satu = explode('<tr class="table_block_content">', $arr[1]);
@@ -49,7 +49,7 @@ class GenerateController extends Controller
         $schedule->save();
 
         $date = date("Y-m",strtotime("-3 months"));
-        $delete = Schedule::where('tangal','like', $date.'%')->delete();
+        $delete = Schedule::where('tanggal','<', $date)->delete();
       }
     }else{
       return "no param";
