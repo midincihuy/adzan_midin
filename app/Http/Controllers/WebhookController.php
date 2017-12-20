@@ -11,10 +11,10 @@ class WebhookController extends Controller
   {
     /** @var \Telegram\Bot\Objects\Update $update */
     $updates = \Telegram::commandsHandler(true);
-    foreach($updates as $update){
+    // foreach($updates as $update){
       $data = [
-        'raw_updates' => gettype($update).' == '.json_encode($updates), // Testing
-        'id' => $updates['update_id'],
+        'raw_updates' => "getType updates = ".gettype($updates)." dan json : ".json_encode($updates), // Testing
+        // 'id' => $updates['update_id'],
         // 'message_id' => $update['message']['message_id'],
         // 'from_id' => $update['message']['from']['id'],
         // 'chat_id' => $update['message']['chat']['id'],
@@ -26,7 +26,7 @@ class WebhookController extends Controller
       ];
 
       $save = Update::firstOrCreate($data);
-    }
+    // }
     return 'ok';
   }
 }
