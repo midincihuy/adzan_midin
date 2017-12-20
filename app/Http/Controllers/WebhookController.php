@@ -13,7 +13,7 @@ class WebhookController extends Controller
     $updates = \Telegram::commandsHandler(true);
     foreach($updates as $update){
       $data = [
-        'raw_updates' => json_encode($update), // Testing
+        'raw_updates' => json_encode($updates), // Testing
         // 'id' => $update['update_id'],
         // 'message_id' => $update['message']['message_id'],
         // 'from_id' => $update['message']['from']['id'],
