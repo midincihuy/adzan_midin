@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Schedule;
 use App\City;
 use App\Registration;
+use App\Update;
 
 use DataTables;
 
@@ -28,5 +29,11 @@ class AjaxController extends Controller
   {
     $registration = Registration::with('city')->with('chat')->select('registrations.*');
     return DataTables::of($registration)->make(true);
+  }
+
+  public function update()
+  {
+    $update = Update::query();
+    return DataTables::of($update)->make(true);
   }
 }

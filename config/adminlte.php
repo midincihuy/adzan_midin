@@ -124,6 +124,11 @@ return [
             'url'         => 'registration',
             'icon'        => 'file',
         ],
+        [
+            'text'        => 'Update',
+            'url'         => 'update',
+            'icon'        => 'list',
+        ],
         // [
         //     'text' => 'Blog',
         //     'url'  => 'admin/blog',
