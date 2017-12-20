@@ -6,6 +6,7 @@ use Telegram\Bot\Actions;
 use Telegram\Bot\Commands\Command;
 use App\Schedule;
 use App\Registration;
+use App\City;
 
 class RegisterCommand extends Command
 {
@@ -33,12 +34,16 @@ class RegisterCommand extends Command
           $registration = Registration::firstOrNew([
             'chat_id' => $chat_id
           ]);
-          $registration->city_id = $city_id;
-          $registration->save();
-
-          $text = 'Hello! Thanks for registering';
+          $city = City::where('city_id', $city_id)->first();
+          if(isset($city)){
+            $registration->city_id = $city_id;
+            $registration->save();
+            $text = 'Hello! Thanks for registering for '.$city->name;
+          }else{
+            $text = "City id [$city_id] not found\nCheck city_id with /city command";
+          }
         }else{
-          $text = "Please provide the city_id\nExample : /register [city_id]";
+          $text = "Please provide the city_id\nExample : '/register 67' ";
         }
         $this->replyWithMessage(['text' => $text]);
 

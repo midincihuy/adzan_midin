@@ -31,7 +31,7 @@ class CityCommand extends Command
       if(!empty($city_text)){
         $city = City::where('name', 'like','%'.$city_text.'%')->get();
         if(!empty($city)){
-          $text .= "List City";
+          $text .= "List City [city_id]";
           foreach ($city as $key => $value) {
             $text .= "\n$value->name [$value->city_id]";
           }
