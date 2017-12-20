@@ -13,7 +13,7 @@ class WebhookController extends Controller
     $updates = \Telegram::commandsHandler(true);
     // foreach($updates as $update){
       $data = [
-        'raw_updates' => "getType updates = ".gettype($updates)." dan json : ".json_encode($updates). " data updates->update_id $updates->update_id", // Testing
+        'raw_updates' => "getType updates = ".gettype($updates)." dan json : ".json_encode($updates). " ", // Testing
 
         /*
         Data $updates
