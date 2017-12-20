@@ -28,6 +28,7 @@ class RegisterCommand extends Command
         $data = explode(' ', $arguments);
         $city_id = $data[0];
         $text = "";
+        $triggerCommandCity = false;
         if(!empty($city_id)){
           $chat_id = $this->getTelegram()->getWebhookUpdates()->getMessage()->getChat()->getId();
 
@@ -41,11 +42,15 @@ class RegisterCommand extends Command
             $text = 'Hello! Thanks for registering for '.$city->name;
           }else{
             $text = "City id [$city_id] not found\nCheck city_id with /city command";
+            $triggerCommandCity = true;
           }
         }else{
           $text = "Please provide the city_id\nExample : '/register 67' ";
         }
         $this->replyWithMessage(['text' => $text]);
+        if($triggerCommandCity){
+          $this->triggerCommand('city');
+        }
 
     }
 }
