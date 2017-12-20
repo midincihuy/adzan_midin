@@ -14,7 +14,7 @@ class WebhookController extends Controller
     foreach($updates as $update){
       $data = [
         'raw_updates' => gettype($update).' == '.json_encode($updates), // Testing
-        'id' => $updates->update_id,
+        'id' => $updates['update_id'],
         // 'message_id' => $update['message']['message_id'],
         // 'from_id' => $update['message']['from']['id'],
         // 'chat_id' => $update['message']['chat']['id'],
