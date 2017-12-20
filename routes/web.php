@@ -24,21 +24,7 @@ Route::resource('city', 'CityController');
 
 Route::resource('generate', 'GenerateController');
 
-Route::get('/set', function () {
-    $res = \Telegram::setWebhook([
-        'url' => 'https://salty-escarpment-49242.herokuapp.com/255036040:AAE0dMDd4pzprAxXZQR28OANmbWwMRklbVk/webhook'
-    ]);
-    dd($res);
-
-});
-
-Route::post('/255036040:AAE0dMDd4pzprAxXZQR28OANmbWwMRklbVk/webhook', function () {
-
-    /** @var \Telegram\Bot\Objects\Update $update */
-    $update = \Telegram::commandsHandler(true);
-
-    return 'ok';
-});
+Route::post('/255036040:AAE0dMDd4pzprAxXZQR28OANmbWwMRklbVk/webhook', 'WebhookController@index');
 Route::resource('registration', 'RegistrationController');
 
 Route::get('/ajax/schedule', 'AjaxController@schedule')->name('ajax_schedule');
