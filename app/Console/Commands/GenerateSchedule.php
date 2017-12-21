@@ -87,7 +87,7 @@ class GenerateSchedule extends Command
             $schedule->isya    = $data[8];
             $schedule->save();
 
-            $date = date("Y-m",strtotime("-3 months"));
+            $date = date("Y-m",strtotime("-2 months"));
             $delete = Schedule::where('tanggal','<', $date)->delete();
           }
         }else{
