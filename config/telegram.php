@@ -62,5 +62,6 @@ return [
         App\Commands\CityCommand::class,
         App\Commands\AlertCommand::class,
         App\Commands\StartCommand::class,
+        App\Commands\UnregisterCommand::class,
     ],
 ];

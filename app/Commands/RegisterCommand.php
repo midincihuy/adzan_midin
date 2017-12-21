@@ -40,6 +40,7 @@ class RegisterCommand extends Command
             $registration->city_id = $city_id;
             $registration->save();
             $text = 'Hello! Thanks for registering for '.$city->name;
+            \Artisan::call('jadwal:generate');
           }else{
             $text = "City id [$city_id] not found\nCheck city_id with /city command";
             $triggerCommandCity = true;
