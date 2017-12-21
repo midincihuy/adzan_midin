@@ -85,7 +85,7 @@ class GenerateController extends Controller
   public function show()
   {
     $tanggal = date("Y-m-d");
-    $regisration = Registration::all();
+    $regisration = Registration::where('status','1')->get();
     $text = "";
     foreach($regisration as $reg){
       $time = date("H:i", strtotime('+'.$reg->alert.' minutes'));

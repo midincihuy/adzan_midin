@@ -7,12 +7,12 @@
       <table id="registration">
         <thead>
           <tr>
-            <th>City</th><th>Type</th><th>Chat Title</th><th>Chat Username</th><th>First Name</th><th>Last Name</th><th>Alert (minutes)</th>
+            <th>City</th><th>Type</th><th>Chat Title</th><th>Chat Username</th><th>First Name</th><th>Last Name</th><th>Alert (minutes)</th><th>Status</th>
           </tr>
         </thead>
         <tfoot>
           <tr>
-            <th>City</th><th>Type</th><th>Chat Title</th><th>Chat Username</th><th>First Name</th><th>Last Name</th><th>Alert (minutes)</th>
+            <th>City</th><th>Type</th><th>Chat Title</th><th>Chat Username</th><th>First Name</th><th>Last Name</th><th>Alert (minutes)</th><th>Status</th>
           </tr>
         </tfoot>
       </table>
@@ -34,6 +34,7 @@
         { data: 'chat.first_name', name: 'chat.first_name' },
         { data: 'chat.last_name', name: 'chat.last_name' },
         { data: 'alert', name: 'alert' },
+        { data: 'status', name: 'status' },
       ]
     });
   </script>
