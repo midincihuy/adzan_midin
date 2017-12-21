@@ -38,6 +38,7 @@ class RegisterCommand extends Command
           $city = City::where('city_id', $city_id)->first();
           if(isset($city)){
             $registration->city_id = $city_id;
+            $registration->status = 1;
             $registration->save();
             $text = 'Hello! Thanks for registering for '.$city->name;
             $tanggal = date("Y-m-d");
