@@ -30,7 +30,7 @@ class UnregisterCommand extends Command
       $text = "";
       $registration = Registration::where([
         'chat_id' => $chat_id
-      ]);
+      ])->first();
       if($registration){
         $registration->status='0';
         $registration->save();
