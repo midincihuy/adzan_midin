@@ -82,11 +82,11 @@ class Alert extends Command
               // $text .= "\nIsya $data->isya";
               break;
         }
-        $text .= "shubuh : ".$data->shubuh;
-        $text .= "\ndzuhur : ".$data->dzuhur;
-        $text .= "\nashar : ".$data->ashr;
-        $text .= "\nmaghrib : ".$data->maghrib;
-        $text .= "\nisya : ".$data->isya;
+        // $text .= "shubuh : ".$data->shubuh;
+        // $text .= "\ndzuhur : ".$data->dzuhur;
+        // $text .= "\nashar : ".$data->ashr;
+        // $text .= "\nmaghrib : ".$data->maghrib;
+        // $text .= "\nisya : ".$data->isya;
         $from_time = strtotime(date("Y-m-d $from:00"));
         $selisih = round(abs($to_time - $from_time) / 60,2);
 
