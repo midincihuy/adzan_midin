@@ -94,16 +94,17 @@ class Alert extends Command
           if($text != ""){
             // Log::info($text);
             $response = \Telegram::sendMessage([
-              // 'chat_id' => $reg->chat_id,
-                    'chat_id' => '151065522',
+              'chat_id' => $reg->chat_id,
+                    // 'chat_id' => '151065522',
                     'text' => $text,
                 ]);
           }
           // echo "<pre>";
           // echo $text;
 
-          $text = "";
+
         }
+        $text = "";
       }
     }
 }
