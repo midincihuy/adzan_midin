@@ -38,7 +38,7 @@ class StartCommand extends Command
           $chats->username = $chat->getUsername();
           $chats->first_name = $chat->getFirstName();
           $chats->last_name = $chat->getLastName();
-        }else if($chat->getType() == 'group'){
+        }else if($chat->getType() == 'group' || $chat->getType() == 'supergroup'){
           $chats->title = $chat->getTitle();
         }
         $chats->save();
