@@ -123,10 +123,14 @@ class GenerateController extends Controller
       }
       if($text != ""){
         // Log::info($text);
+        try{
         $response = \Telegram::sendMessage([
                 'chat_id' => $reg->chat_id,
                 'text' => $text,
             ]);
+        }catch(Exception $e){
+          print_r($e->getMessage());
+        }
       }
       // echo "<pre>";
       // echo $text;
