@@ -28,7 +28,7 @@ class ClearUpdateController extends Controller
                         $model = Schedule::orderBy('id')->limit($value)->delete();
                         break;
                     case "Registration" :
-                        $model = Registration::where('chat_id','')->delete();
+                        $model = Registration::where('id',$value)->delete();
                         break;
                     default: 
                         break;

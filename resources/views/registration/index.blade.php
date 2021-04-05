@@ -27,7 +27,7 @@
       serverSide: true,
       ajax: '{!! route('ajax_registration') !!}',
       columns: [
-        { data: 'registration.id', name: 'registration.id' },
+        { data: 'registrations.id', name: 'registrations.id' },
         { data: 'chat.id', name: 'chat.id' },
         { data: 'chat.chat_id', name: 'chat.chat_id' },
         { data: 'city.name', name: 'city.name' },
