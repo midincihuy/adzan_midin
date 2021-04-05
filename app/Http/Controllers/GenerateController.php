@@ -13,6 +13,8 @@ class GenerateController extends Controller
   {
     $year = $request->input('year');
     $month = $request->input('month');
+    $date = date("Y-m",strtotime("-2 days"));
+    $delete = Schedule::where('tanggal','<', $date)->delete();
     // $city_id = $request->input('city_id');
     $reg = Registration::select('city_id')->orderBy('city_id')->groupBy('city_id')->get();
     if(count($reg) == 0){
@@ -73,8 +75,7 @@ class GenerateController extends Controller
           $schedule->isya    = $data[8];
           $schedule->save();
 
-          $date = date("Y-m",strtotime("-2 days"));
-          $delete = Schedule::where('tanggal','<', $date)->delete();
+          
         }
       }else{
         return "no param";
