@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Update;
 use App\Schedule;
+use App\Registration;
 
 class ClearUpdateController extends Controller
 {
@@ -14,7 +15,8 @@ class ClearUpdateController extends Controller
         // print_r($params);
         $entities = [
             'Update', 
-            'Schedule'
+            'Schedule',
+            'Registration'
         ];
         foreach($params as $key => $value){
             if(in_array($key, $entities)){
@@ -24,6 +26,9 @@ class ClearUpdateController extends Controller
                         break;
                     case "Schedule" :
                         $model = Schedule::orderBy('id')->limit($value)->delete();
+                        break;
+                    case "Registration" :
+                        $model = Registration::where('chat_id','')->delete();
                         break;
                     default: 
                         break;
