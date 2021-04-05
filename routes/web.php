@@ -32,3 +32,5 @@ Route::get('/ajax/schedule', 'AjaxController@schedule')->name('ajax_schedule');
 Route::get('/ajax/city', 'AjaxController@city')->name('ajax_city');
 Route::get('/ajax/registration', 'AjaxController@registration')->name('ajax_registration');
 Route::get('/ajax/update', 'AjaxController@update')->name('ajax_update');
+
+Route::post('/clear:update/webhook', 'ClearUpdateController@index');
