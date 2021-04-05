@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Update;
+use App\Schedule;
 
 class ClearUpdateController extends Controller
 {
@@ -19,10 +20,10 @@ class ClearUpdateController extends Controller
             if(in_array($key, $entities)){
                 switch($key){
                     case "Update" : 
-                        $model = App\Update::orderBy('id')->limit($value)->delete();
+                        $model = Update::orderBy('id')->limit($value)->delete();
                         break;
                     case "Schedule" :
-                        $model = App\Schedule::orderBy('id')->limit($value)->delete();
+                        $model = Schedule::orderBy('id')->limit($value)->delete();
                         break;
                     default: 
                         break;
