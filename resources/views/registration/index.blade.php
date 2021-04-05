@@ -7,12 +7,12 @@
       <table id="registration">
         <thead>
           <tr>
-            <th>ID</th><th>Chat ID</th><th>City</th><th>Type</th><th>Chat Title</th><th>Chat Username</th><th>First Name</th><th>Last Name</th><th>Alert (minutes)</th><th>Status</th>
+            <th>Reg ID</th><th>ID</th><th>Chat ID</th><th>City</th><th>Type</th><th>Chat Title</th><th>Chat Username</th><th>First Name</th><th>Last Name</th><th>Alert (minutes)</th><th>Status</th>
           </tr>
         </thead>
         <tfoot>
           <tr>
-            <th>ID</th><th>Chat ID</th><th>City</th><th>Type</th><th>Chat Title</th><th>Chat Username</th><th>First Name</th><th>Last Name</th><th>Alert (minutes)</th><th>Status</th>
+            <th>Reg ID</th><th>ID</th><th>Chat ID</th><th>City</th><th>Type</th><th>Chat Title</th><th>Chat Username</th><th>First Name</th><th>Last Name</th><th>Alert (minutes)</th><th>Status</th>
           </tr>
         </tfoot>
       </table>
@@ -27,6 +27,7 @@
       serverSide: true,
       ajax: '{!! route('ajax_registration') !!}',
       columns: [
+        { data: 'registration.id', name: 'registration.id' },
         { data: 'chat.id', name: 'chat.id' },
         { data: 'chat.chat_id', name: 'chat.chat_id' },
         { data: 'city.name', name: 'city.name' },
