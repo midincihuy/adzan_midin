@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Schedule;
 use App\Registration;
+use App\Update;
 
 class GenerateController extends Controller
 {
@@ -77,6 +78,10 @@ class GenerateController extends Controller
 
           
         }
+        $date = date("Y-m",strtotime("-2 months"));
+        $delete = Schedule::where('tanggal','<', $date)->delete();
+        $value = 1000;
+        Update::orderBy('id')->limit($value)->delete();
       }else{
         return "no param";
       }
